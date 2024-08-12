@@ -1,6 +1,3 @@
-print('Hi!')
+# 'hello world"hello python'''hello Visual Studio Code'''"'
 
-def print(word):
-    print(word)
-
-print(word=input('print: '))
+print("Hi!")

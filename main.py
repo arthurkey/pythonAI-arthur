@@ -1,3 +1,5 @@
 # 'hello world"hello python'''hello Visual Studio Code'''"'
 
-print("Hi!")
+import streamlit as st
+
+st.title("Arthur's world")

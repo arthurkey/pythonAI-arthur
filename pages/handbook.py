@@ -2,8 +2,6 @@ import streamlit as st
 
 st.markdown(
     """
-以下是程式中使用到的技巧及其說明，已經使用 Markdown 製作成筆記：
-
 ## 基本語法與運算
 
 ### 單行與多行註解

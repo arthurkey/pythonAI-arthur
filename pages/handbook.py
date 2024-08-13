@@ -1,208 +1,233 @@
 import streamlit as st
+import os
 
-st.markdown(
-    """
-## 基本語法與運算
+fold = "Markdown"  # 設定資料路徑
+file = os.listdir(fold)  # 取得所需的所有檔案
+print(file)
+fina = []  # 建立空的list 以防有不需要的檔案
+for i in file:
+    if i.endswith(".md"):  # 將條件訂為只有md檔案
+        fina.append(i)  # 將檔案加入新list
+print(fina)
+for i in fina:
+    with open(
+        f"{fold}/{i}", "r", encoding="utf-8"
+    ) as f:  # 用with open()讀取檔案, 並將其放入f, 模式設為r, 編碼為utf-8
+        cont = f.read()
+    with st.expander(i[:-3]):  # 用with st.expander()將檔案名稱去掉.md
+        st.markdown(cont)  # 將檔案內容顯示在網站中
 
-### 單行與多行註解
+# with st.expander("#第一天課堂筆記"):
+#     st.markdown(
+#         """
+# ## 基本語法與運算
 
-```python
-# 這是單行註釋
+# ### 單行與多行註解
 
-'''
-這
-是
-多
-行
-注
-解
-'''
-```
+# ```python
+# # 這是單行註釋
 
-- 單行註解使用 `#`，通常用來簡單描述某行代碼的功能。
-- 多行註解使用三引號 (`'''`) 包含，適合用來註解較長的段落或解釋。
+# '''
+# 這
+# 是
+# 多
+# 行
+# 注
+# 解
+# '''
+# ```
 
-### 輸出到終端機
+# - 單行註解使用 `#`，通常用來簡單描述某行代碼的功能。
+# - 多行註解使用三引號 (`'''`) 包含，適合用來註解較長的段落或解釋。
 
-```python
-print("在終端機顯示文字")
-```
+# ### 輸出到終端機
 
-- `print()` 函數用來在終端機顯示文字或變數的值。
+# ```python
+# print("在終端機顯示文字")
+# ```
 
-### 資料型態
+# - `print()` 函數用來在終端機顯示文字或變數的值。
 
-```python
-print(1)  # int
-print(1.0)  # float
-print("1")  # str
-print(True)  # bool
-```
+# ### 資料型態
 
-- `int`：整數
-- `float`：浮點數
-- `str`：字串
-- `bool`：布林值
+# ```python
+# print(1)  # int
+# print(1.0)  # float
+# print("1")  # str
+# print(True)  # bool
+# ```
 
-### 變數
+# - `int`：整數
+# - `float`：浮點數
+# - `str`：字串
+# - `bool`：布林值
 
-```python
-a = 10  # 新增變數a 並用'='設質為10
-print(a)  # 在終端機顯示a的值
-```
+# ### 變數
 
-- 使用 `=` 來賦值給變數。
+# ```python
+# a = 10  # 新增變數a 並用'='設質為10
+# print(a)  # 在終端機顯示a的值
+# ```
 
-### 基本運算符
+# - 使用 `=` 來賦值給變數。
 
-```python
-print(1 + 1)  # 加法
-print(1 - 1)  # 減法
-print(1 * 1)  # 乘法
-print(1 / 1)  # 除法
-print(1 ** 1)  # 次方
-print(1 % 1)  # 取餘數
-print(1 // 1)  # 整數除法
-```
+# ### 基本運算符
 
-- 基本數學運算符號：`+`、`-`、`*`、`/`、`**`、`%`、`//`。
+# ```python
+# print(1 + 1)  # 加法
+# print(1 - 1)  # 減法
+# print(1 * 1)  # 乘法
+# print(1 / 1)  # 除法
+# print(1 ** 1)  # 次方
+# print(1 % 1)  # 取餘數
+# print(1 // 1)  # 整數除法
+# ```
 
-### 計算順序
+# - 基本數學運算符號：`+`、`-`、`*`、`/`、`**`、`%`、`//`。
 
-```python
-# 1.() 括號
-# 2.** 次方
-# 3. // 整數除法 / 除法  % 取餘數  * 乘法
-# 4. + - 加減
-```
+# ### 計算順序
 
-- 運算順序：括號 > 次方 > 乘除與取餘數 > 加減。
+# ```python
+# # 1.() 括號
+# # 2.** 次方
+# # 3. // 整數除法 / 除法  % 取餘數  * 乘法
+# # 4. + - 加減
+# ```
 
-## 字串操作
+# - 運算順序：括號 > 次方 > 乘除與取餘數 > 加減。
 
-### 字串運算
+# ## 字串操作
 
-```python
-print("1" + "1")  # 字串加法 = 11
-print("1" * 3)  # 字串乘法 = 111
-```
+# ### 字串運算
 
-- 字串的 `+` 用來連接字串，`*` 用來重複字串。
+# ```python
+# print("1" + "1")  # 字串加法 = 11
+# print("1" * 3)  # 字串乘法 = 111
+# ```
 
-### 字串格式化
+# - 字串的 `+` 用來連接字串，`*` 用來重複字串。
 
-```python
-print(f"1{1}ekfjbv{234698}1")  # f 字串格式化
-```
+# ### 字串格式化
 
-- 使用 `f` 來進行字串插值，將變數的值插入字串中。
+# ```python
+# print(f"1{1}ekfjbv{234698}1")  # f 字串格式化
+# ```
 
-### 取長度
+# - 使用 `f` 來進行字串插值，將變數的值插入字串中。
 
-```python
-print(len("1"))  # 字串長度 = 1
-print(len([1, 2, 3]))  # 陣列長度 = 3
-```
+# ### 取長度
 
-- 使用 `len()` 函數來獲取字串或列表的長度。
+# ```python
+# print(len("1"))  # 字串長度 = 1
+# print(len([1, 2, 3]))  # 陣列長度 = 3
+# ```
 
-## 資料類型與轉換
+# - 使用 `len()` 函數來獲取字串或列表的長度。
 
-### 取得資料物件的屬性
+# ## 資料類型與轉換
 
-```python
-print(type(1))  # int
-print(type("1"))  # str
-print(type([1, 2, 3]))  # list
-```
+# ### 取得資料物件的屬性
 
-- 使用 `type()` 函數來查看變數的資料型態。
+# ```python
+# print(type(1))  # int
+# print(type("1"))  # str
+# print(type([1, 2, 3]))  # list
+# ```
 
-### 型態轉換
+# - 使用 `type()` 函數來查看變數的資料型態。
 
-```python
-# 轉為整數 int
-int(1.0)  # 1
-int("1")  # 1
+# ### 型態轉換
 
-# 轉為浮點數 float
-float(1)  # 1.0
+# ```python
+# # 轉為整數 int
+# int(1.0)  # 1
+# int("1")  # 1
 
-# 轉為字串 str
-str(1)  # "1"
+# # 轉為浮點數 float
+# float(1)  # 1.0
 
-# 轉為布林值 bool
-bool(1)  # True
-```
+# # 轉為字串 str
+# str(1)  # "1"
 
-- 常見的型態轉換函數有 `int()`、`float()`、`str()` 和 `bool()`。
+# # 轉為布林值 bool
+# bool(1)  # True
+# ```
 
-## 輸入與輸出
+# - 常見的型態轉換函數有 `int()`、`float()`、`str()` 和 `bool()`。
 
-### 讀取輸入
+# ## 輸入與輸出
 
-```python
-a = input("請輸入一個整數：")  # 讀取輸入
-print(a)  # 輸出讀取的輸入
-```
+# ### 讀取輸入
 
-- 使用 `input()` 函數來讀取使用者輸入，並將輸入值賦值給變數。
+# ```python
+# a = input("請輸入一個整數：")  # 讀取輸入
+# print(a)  # 輸出讀取的輸入
+# ```
 
-### 圓面積計算範例
+# - 使用 `input()` 函數來讀取使用者輸入，並將輸入值賦值給變數。
 
-```python
-pi = 3.14
-a = int(input("Please enter the radius of the circle: "))
-print(a * a * pi)
-```
+# ### 圓面積計算範例
 
-- 結合輸入與型態轉換來進行簡單的計算。
+# ```python
+# pi = 3.14
+# a = int(input("Please enter the radius of the circle: "))
+# print(a * a * pi)
+# ```
 
-## Streamlit 基本用法
+# - 結合輸入與型態轉換來進行簡單的計算。
 
-### 顯示標題
+# ## Streamlit 基本用法
 
-```python
-import streamlit as st
-st.title("這是標題")
-```
+# ### 顯示標題
 
-- 使用 `st.title()` 來顯示標題。
+# ```python
+# import streamlit as st
+# st.title("這是標題")
+# ```
 
-### 顯示文字與格式化字串
+# - 使用 `st.title()` 來顯示標題。
 
-```python
-st.write(
-    "這是一個用 `st.write` 顯示的字串，可以處理多種格式，例如：數字、文字、Markdown、數據框等。"
-)
-st.text("這是一個用 `st.text` 顯示的純文字字串，只能顯示純文字，不支持其他格式。")
-```
+# ### 顯示文字與格式化字串
 
-- `st.write()` 支援顯示多種格式的內容。
-- `st.text()` 僅能顯示純文字。
+# ```python
+# st.write(
+#     "這是一個用 `st.write` 顯示的字串，可以處理多種格式，例如：數字、文字、Markdown、數據框等。"
+# )
+# st.text("這是一個用 `st.text` 顯示的純文字字串，只能顯示純文字，不支持其他格式。")
+# ```
 
-### 使用 Markdown 語法
+# - `st.write()` 支援顯示多種格式的內容。
+# - `st.text()` 僅能顯示純文字。
 
-```python
-st.markdown(
-    '''
-    # 這是最大標題
-    ## 這是第二大標題
-    ### 這是第三大標題
-    例如：
-    * **粗體文字**
-    * *斜體文字*
-    * [連結](https://www.example.com)
-    * 代碼塊：
-    ```python
-    print("Hello, Streamlit!")
-    ```
-    '''
-)
-```
+# ### 使用 Markdown 語法
 
-- `st.markdown()` 可用來顯示含有 Markdown 語法的字串，支援多種格式如標題、連結、代碼塊等。
+# ```python
+# st.markdown(
+#     '''
+#     # 這是最大標題
+#     ## 這是第二大標題
+#     ### 這是第三大標題
+#     例如：
+#     * **粗體文字**
+#     * *斜體文字*
+#     * [連結](https://www.example.com)
+#     * 代碼塊：
+#     ```python
+#     print("Hello, Streamlit!")
+#     ```
+#     '''
+# )
+# ```
+
+# - `st.markdown()` 可用來顯示含有 Markdown 語法的字串，支援多種格式如標題、連結、代碼塊等。
 
 
-"""
-)
+# """
+#     )
+
+# with st.expander("#第一天課堂筆記"):
+#     st.markdown(
+#         """
+# 未開始
+# """
+#     )

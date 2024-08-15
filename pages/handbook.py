@@ -17,6 +17,8 @@ for i in fina:
     with st.expander(i[:-3]):  # 用with st.expander()將檔案名稱去掉.md
         st.markdown(cont)  # 將檔案內容顯示在網站中
 
+fina.sort()  # 排序
+
 # with st.expander("#第一天課堂筆記"):
 #     st.markdown(
 #         """

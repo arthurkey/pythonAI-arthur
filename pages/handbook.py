@@ -8,7 +8,9 @@ fina = []  # 建立空的list 以防有不需要的檔案
 for i in file:
     if i.endswith(".md"):  # 將條件訂為只有md檔案
         fina.append(i)  # 將檔案加入新list
-print(fina)
+
+fina.sort()  # 排序
+
 for i in fina:
     with open(
         f"{fold}/{i}", "r", encoding="utf-8"
@@ -17,7 +19,6 @@ for i in fina:
     with st.expander(i[:-3]):  # 用with st.expander()將檔案名稱去掉.md
         st.markdown(cont)  # 將檔案內容顯示在網站中
 
-fina.sort()  # 排序
 
 # with st.expander("#第一天課堂筆記"):
 #     st.markdown(

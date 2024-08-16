@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 
 st.title("圖片元件")
 st.image("image/apple.png", width=300)

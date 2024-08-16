@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 
 fold = "Markdown"  # 設定資料路徑
 file = os.listdir(fold)  # 取得所需的所有檔案

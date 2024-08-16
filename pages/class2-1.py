@@ -1,4 +1,7 @@
 # 'hello world"hello python'''hello Visual Studio Code'''"'
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 
 # 比較運算子
 # print(1 == 1) = True # == 等於

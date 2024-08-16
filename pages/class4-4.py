@@ -1,3 +1,6 @@
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 # def 函數定義
 # def hello():
 #     print("Hello World!")

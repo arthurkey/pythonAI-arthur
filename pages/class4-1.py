@@ -1,3 +1,6 @@
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 # 字典(列表) dict
 
 ## 格式： {key1: value, key2: value, ...}

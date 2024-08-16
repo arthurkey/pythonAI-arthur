@@ -1,4 +1,7 @@
 import streamlit as st
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 
 if "meals" not in st.session_state:
     st.session_state.meals = []

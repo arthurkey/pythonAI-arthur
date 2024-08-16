@@ -1,3 +1,6 @@
+from utils import set_background  # 從 utils.py 只匯入 set_background 函式
+
+set_background("image/python-logo.png", 20, "left bottom")
 # 算術指定運算子 = 算術運算子 + 指定運算子
 # x = 1
 # x += 1           # x = x + 1
